@@ -14,8 +14,6 @@ warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'asfhdasfhbakwjbkfefr7y57y47rjbfkabzfcbhafbka'
-app.config['SUBMITTED_DATA'] = os.path.join('static', 'data_dir','')
-app.config['SUBMITTED_IMG'] = os.path.join('static', 'image_dir','')
 
 @app.route('/')
 def greetings():
@@ -44,14 +42,12 @@ def get_car_info():
         else:
             car_dict = {"cylinders": car_cylinders, "horsepower": car_horsepower, "weight": car_weight,
                         "age": datetime.today().year - car_year, "origin_japan": 0, "origin_usa": 0}
-
         input_array = np.array(list(car_dict.values())).reshape(1, -1)
-
 
         mpg_model = load("mpg_model.joblib")
         mpg_final = mpg_model.predict(input_array)
 
-        return render_template("index.html")
+        return render_template("view_mpg_results.html", car_dict=car_dict, mpg_final=round(mpg_final[0], 2))
     else:
         return render_template("add_car_info.html", form=form)
 

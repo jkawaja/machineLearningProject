@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+MPG Estimate
+{% endblock %}
+
+{% block H1_Description %}
+{% endblock %}
+
+{% block H1_Content %}
+{% endblock %}
+
+{% block H2_Description %}
+Please find the details of the recipe that was requested
+{% endblock %}
+
+{% block H2_Content %}
+<div class="container">
+  <div class="row">
+      <div class="col-md-8">
+        <h4 class="font-weight-bold mb-0">Car Cylinders: <span class="text-muted font-weight-normal"> {{ car_dict.cylinders }}</span></h4>
+        <h4 class="font-weight-bold mb-0">Car Horsepower: <span class="text-muted font-weight-normal"> {{ recipe.ingredients }}</span></h4>
+        <h4 class="font-weight-bold mb-0">Car Weight: <span class="text-muted font-weight-normal"> {{ recipe.preparations }}</span></h4>
+        <h4 class="font-weight-bold mb-0">Car Age: <span class="text-muted font-weight-normal"> {{ recipe.instructions }}</span></h4>
+        <h4 class="font-weight-bold mb-0">Car Origin:
+          {% if (car_dict.origin_japan == 1) %}
+            <span class="text-muted font-weight-normal"> {{ "Japan" }}</span>
+          {% elif (car_dic.origin_usa == 2) %}
+            <span class="text-muted font-weight-normal"> {{ "USA" }}</span>
+          {% else %}
+            <span class="text-muted font-weight-normal"> {{ "Europe" }}</span>
+          {% endif %}
+        </h4>
+    </div>
+    </div>
+  </div>
+
+{% endblock %}

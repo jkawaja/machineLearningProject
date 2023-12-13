@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+Diabetes Estimate
+{% endblock %}
+
+{% block H1_Description %}
+Diabetes Estimate for person with the following qualities:
+{% endblock %}
+
+{% block H1_Content %}
+<div class="container">
+  <div class="row">
+      <div class="col-md-8">
+        <h4 class="font-weight-bold mb-0">Person's Glucose: <span class="text-muted font-weight-normal"> {{ person.glucose }}</span></h4>
+        <h4 class="font-weight-bold mb-0">Person's BMI: <span class="text-muted font-weight-normal"> {{ person.bmi }}</span></h4>
+        <h4 class="font-weight-bold mb-0">Person's Age: <span class="text-muted font-weight-normal"> {{ person.age }}</span></h4>
+    </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block H2_Description %}
+<h2>Diabetes Diagnosis:</h2>
+{% endblock %}
+
+{% block H2_Content %}
+    <h3>
+        {% if (diabetes_final == 0) %}
+            <span>{{ "Negative" }}</span>
+        {% else %}
+            <span>{{ "Positive" }}</span>
+        {% endif %}
+    </h3>
+{% endblock %}

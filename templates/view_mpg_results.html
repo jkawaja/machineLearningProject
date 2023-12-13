@@ -12,14 +12,14 @@ Car MPG Estimate for the following car specs:
 <div class="container">
   <div class="row">
       <div class="col-md-8">
-        <h4 class="font-weight-bold mb-0">Car Cylinders: <span class="text-muted font-weight-normal"> {{ car_dict.cylinders }}</span></h4>
-        <h4 class="font-weight-bold mb-0">Car Horsepower: <span class="text-muted font-weight-normal"> {{ car_dict.horsepower }}</span></h4>
-        <h4 class="font-weight-bold mb-0">Car Weight: <span class="text-muted font-weight-normal"> {{ car_dict.weight }}</span></h4>
-        <h4 class="font-weight-bold mb-0">Car Age: <span class="text-muted font-weight-normal"> {{ car_dict.age }}</span></h4>
+        <h4 class="font-weight-bold mb-0">Car Cylinders: <span class="text-muted font-weight-normal"> {{ car.cylinders }}</span></h4>
+        <h4 class="font-weight-bold mb-0">Car Horsepower: <span class="text-muted font-weight-normal"> {{ car.horsepower }}</span></h4>
+        <h4 class="font-weight-bold mb-0">Car Weight: <span class="text-muted font-weight-normal"> {{ car.weight }}</span></h4>
+        <h4 class="font-weight-bold mb-0">Car Age: <span class="text-muted font-weight-normal"> {{ car.age }}</span></h4>
         <h4 class="font-weight-bold mb-0">Car Origin:
-          {% if (car_dict.origin_japan == 1) %}
+          {% if (car.origin_japan == 1) %}
             <span class="text-muted font-weight-normal"> {{ "Japan" }}</span>
-          {% elif (car_dict.origin_usa == 2) %}
+          {% elif (car.origin_usa == 1) %}
             <span class="text-muted font-weight-normal"> {{ "USA" }}</span>
           {% else %}
             <span class="text-muted font-weight-normal"> {{ "Europe" }}</span>

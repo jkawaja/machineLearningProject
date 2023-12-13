@@ -5,8 +5,6 @@ from datetime import datetime
 import numpy as np
 import warnings
 from joblib import load
-
-
 import pandas as pd
 from werkzeug.utils import secure_filename
 
@@ -18,13 +16,18 @@ app.config['SECRET_KEY'] = 'asfhdasfhbakwjbkfefr7y57y47rjbfkabzfcbhafbka'
 @app.route('/')
 def greetings():
     """
-    Function to show example instance
+    Function to render index.html landing page for site.
     :return:
     """
     return render_template('index.html')
 
 @app.route('/carInfo', methods=['POST', 'GET'])
 def get_car_info():
+    """
+    Function to use mpg_model to get car information. Returns car information from user inputs.
+    Gives estimate of the car's MPG.
+    :return:
+    """
     form = CarInfoForm()
     if form.validate_on_submit():
         car_cylinders = form.carCylinders.data
@@ -56,6 +59,11 @@ def get_car_info():
 
 @app.route('/personInfo', methods=['POST', 'GET'])
 def get_person_info():
+    """
+    Function to use diabetes_model to get person information. Returns person information from user inputs
+    and predicts if person is diabetic.
+    :return:
+    """
     form = PersonInfoForm()
     if form.validate_on_submit():
         person_glucose = form.personGlucose.data

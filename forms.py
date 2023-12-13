@@ -21,13 +21,13 @@ class CarInfoForm(FlaskForm):
 
 
 class PersonInfoForm(FlaskForm):
-    personGlucose = IntegerField("Glucose", validators=[DataRequired(), NumberRange(min=30, max=200)],
+    personGlucose = IntegerField("Glucose:", validators=[DataRequired(), NumberRange(min=30, max=200)],
                                  render_kw={"title": "Glucose must be between 30 and 200"},
                                  default=30)
-    personBMI = DecimalField("Person bmi", validators=[DataRequired(), NumberRange(min=10, max=80)],
+    personBMI = DecimalField("BMI:", validators=[DataRequired(), NumberRange(min=10, max=80)],
                              render_kw={"title": "BMI must be between 10 and 80"},
                              default=Decimal(10))
-    personAge = IntegerField("Age", validators=[DataRequired(), NumberRange(min=20, max=100)],
+    personAge = IntegerField("Age:", validators=[DataRequired(), NumberRange(min=20, max=100)],
                              render_kw={"title": "Age must be between 20 and 100"},
                              default=20)
     submit = SubmitField("Submit")

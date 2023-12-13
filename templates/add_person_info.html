@@ -10,11 +10,7 @@ Add Person Info
 {% endblock %}
 
 {% block H1_Content %}
-Please fill the form in the below section.
-{% endblock %}
-
-{% block H2_Description %}
-Please fill up the following form
+Please fill the form in the below section to get an estimate if the person is diabetic.
 {% endblock %}
 
 {% block H2_Content %}
@@ -23,7 +19,7 @@ Please fill up the following form
         {{ form.csrf_token }}
 <div class="row">
     <div class="col-md-5">
-        <h3>Recipe Basic Information</h3>
+        <h3>Person's Health Information</h3>
         <table>
             {{ render_field(form.personGlucose) }}
             {{ render_field(form.personBMI) }}

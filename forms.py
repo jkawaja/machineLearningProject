@@ -17,5 +17,17 @@ class CarInfoForm(FlaskForm):
                            render_kw={"title": "Year must be between 1965 and 1987."})
     carOrigin = SelectField("Origin:", choices=[("USA", "USA"), ("Japan", "Japan"),  ("Europe", "Europe")],
                             validators=[DataRequired()])
+    submit = SubmitField("Submit")
 
+
+class PersonInfoForm(FlaskForm):
+    personGlucose = IntegerField("Glucose", validators=[DataRequired(), NumberRange(min=30, max=200)],
+                                 render_kw={"title": "Glucose must be between 30 and 200"},
+                                 default=30)
+    personBMI = DecimalField("Person bmi", validators=[DataRequired(), NumberRange(min=10, max=80)],
+                             render_kw={"title": "BMI must be between 10 and 80"},
+                             default=Decimal(10))
+    personAge = IntegerField("Age", validators=[DataRequired(), NumberRange(min=20, max=100)],
+                             render_kw={"title": "Age must be between 20 and 100"},
+                             default=20)
     submit = SubmitField("Submit")
